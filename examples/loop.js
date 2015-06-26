@@ -25,7 +25,7 @@ var beans = 0;
 var loops = 0;
 var expect = 0;
 
-var fetch = function(options) {
+function fetch(options) {
     var _query = util._extend(options, Query);
 
     rets.search(_query)
@@ -36,7 +36,7 @@ var fetch = function(options) {
         beans++;
         // log.info({chunk: chunk});
     });
-};
+}
 
 rets.on('login',function(err){
     if (err) {
