@@ -1,0 +1,22 @@
+[
+    {
+        "scope": "https://rets.server.com:9160",
+        "method": "GET",
+        "path": "/contact/rets/getObject?Resource=Property&Type=HiRes&ID=337468518%3A2&Location=0",
+        "body": "",
+        "status": 200,
+        "response": "some object",
+        "headers": {
+            "server": "Apache-Coyote/1.1",
+            "set-cookie": [
+                "JSESSIONID=BB1E967E89453EF2BF18099C2F241B34; Path=/contact"
+            ],
+            "mime-version": "1.0",
+            "cache-control": "private",
+            "rets-version": "RETS/1.7.2",
+            "content-type": "image/jpeg",
+            "transfer-encoding": "chunked",
+            "date": "Mon, 13 Apr 2015 21:24:34 GMT"
+        }
+    }
+]
