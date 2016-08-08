@@ -242,22 +242,23 @@ describe('Mocked RETS Server calls',function(){
         });
     });
 
-    it('Can get object from the server: NOT IMPLEMENTED',function(done){
+    it('Can get object from the server', function (done) {
 
-        var timeout = setTimeout(function(){
-            rets.removeAllListeners('object');
-            assert(false, 'No event fired');
-            done();
-        },1000);
-
-        rets.addListener('object',function(err){
-            rets.removeAllListeners('object');
-            clearTimeout(timeout);
-            assert(err.message === 'Not implemented');
-            done();
+        loadFixture('getobject');
+        rets.addListener('object', function (err) {
+            assert(err === null);
         });
+        rets.removeAllListeners('object');
 
-        rets.getObject();
+        rets.getObject({
+            Type: 'HiRes',
+            ID: '337468518:2',
+            Location: 0
+        })
+            .on('data', function (chunk) {
+                assert(chunk.toString() === 'some object');
+            })
+            .on('end', done);
     });
 
     it('Can logout of a RETS server',function(done){
